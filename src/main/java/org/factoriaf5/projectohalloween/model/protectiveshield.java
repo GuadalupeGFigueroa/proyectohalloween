@@ -9,24 +9,24 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = POWERFULLBLOW)
+@Table(name = Protectiveshield)
 
-public class POWERFULL_BLOW {
+public class Protectiveshield {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name = "id_powerfullblow")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_protectiveshield")
     private Long id;
 
     private String name;
     private String type;
     private String effect;
 
-    @ManyToOne 
-    @JoinColumn(name = "id_ability")  // Clave foránea
+    @ManyToOne
+    @JoinColumn(name = "id_ability")
     private Ability ability;
 
-    public POWERFULL_BLOW(Long id, String name, String type, String effect, Ability ability) {
+    public Protectiveshield(Long id, String name, String type, String effect, Ability ability) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -73,6 +73,4 @@ public class POWERFULL_BLOW {
     public void setAbility(Ability ability) {
         this.ability = ability;
     }
- 
 }
-    
