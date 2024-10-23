@@ -9,9 +9,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = POWERFULLBLOW)
+@Table(name = Powerfull_blow)
 
-public class POWERFULL_BLOW {
+public class Powerfull_blow {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -26,7 +26,7 @@ public class POWERFULL_BLOW {
     @JoinColumn(name = "id_ability")  // Clave foránea
     private Ability ability;
 
-    public POWERFULL_BLOW(Long id, String name, String type, String effect, Ability ability) {
+    public Powerfull_blow(Long id, String name, String type, String effect, Ability ability) {
         this.id = id;
         this.name = name;
         this.type = type;
