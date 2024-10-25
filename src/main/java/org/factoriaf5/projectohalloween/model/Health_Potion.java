@@ -27,11 +27,12 @@ public class Health_Potion {
     @JoinColumn(name = "id_Object")
     private Object object;
 
-    public Health_Potion(int id, String name, String type, String efect) {
+    public Health_Potion(int id, String name, String type, String efect, Object object) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.efect = efect;
+        this.object = object;
     }
 
     public int getId() {
@@ -64,6 +65,14 @@ public class Health_Potion {
 
     public void setEfect(String efect) {
         this.efect = efect;
+    }
+
+    public Object getObject() {
+        return object;
+    }
+
+    public void setObject(Object object) {
+        this.object = object;
     }
 
 }
