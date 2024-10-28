@@ -1,28 +1,45 @@
-package org.factoriaf5.projectohalloween;
+package org.factoriaf5.projectohalloween.model;
 
-public abstract class villains {
-    protected int lifePoints;
-    protected int attackPoints;
+import jakarta.persistence.*;
 
-    public Villano(int lifePoints, int attackPoints) {
-        this.lifePoints = lifePoints;
-        this.attackPoints = attackPoints;
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "villano_type", discriminatorType = DiscriminatorType.STRING)
+public abstract class Villains {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private int Life_points;
+    private int Attack_points;
+
+    
+    public Villains(int Life_points, int Attack_points) {
+        this.Life_points = Life_points;
+        this.Attack_points = Attack_points;
+    }
+    public Long getId() {
+        return id;
     }
 
-    public void atacar(Aiden player) {
-        player.recibirDaño(this.attackPoints);
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void recibirDaño(int cantidad) {
-        this.lifePoints -= cantidad;
-        if (this.lifePoints < 0) {
-            this.lifePoints = 0;
-        }
+    public int getLife_points() {
+        return Life_points;
     }
 
-    public abstract void derrotado(Aiden player);
-
-    public int getlifePoints() {
-        return this.lifePoints;
+    public void setLife_points(int Life_points) {
+        this.Life_points = Life_points;
     }
+
+    public int getAttack_points() {
+        return Attack_points;
+    }
+
+    public void setAttack_points(int Attack_points) {
+        this.Attack_points = Attack_points;
+    }
+
+    public abstract void derrotado(Aiden jugador);
 }
