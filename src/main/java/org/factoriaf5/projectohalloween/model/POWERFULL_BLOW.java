@@ -22,6 +22,9 @@ public class Powerfull_blow {
     private String type;
     private String effect;
 
+    public Powerfull_blow() {
+    }
+
     @ManyToOne 
     @JoinColumn(name = "id_ability")  // Clave foránea
     private Ability ability;
