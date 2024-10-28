@@ -27,6 +27,10 @@ public class Health_Potion {
     @JoinColumn(name = "id_Object")
     private Object object;
 
+
+    public Health_Potion() {
+    }
+
     public Health_Potion(int id, String name, String type, String efect, Object object) {
         this.id = id;
         this.name = name;
