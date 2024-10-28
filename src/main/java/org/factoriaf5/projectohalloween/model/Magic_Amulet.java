@@ -27,6 +27,10 @@ public class Magic_Amulet {
     @JoinColumn(name = "id_Object")
     private Object object;
 
+    
+    public Magic_Amulet() {
+    }
+
     public Magic_Amulet(int id, String name, String type, String efect, Object object) {
         this.id = id;
         this.name = name;
