@@ -44,6 +44,9 @@ public class Object {
         this.efect = efect;
     }
 
+    public Object() {
+    }
+
     public Object(String name, String type, String efect) {
         this.name = name;
         this.type = type;
