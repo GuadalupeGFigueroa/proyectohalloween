@@ -20,6 +20,10 @@ public class Aiden {
     private int experience;
     private int score;
 
+    
+    public Aiden() {
+    }
+
     public Aiden(Long id, String name, int life_points, int attack_power, int level, int experience, int score) {
         this.id = id;
         this.name = name;
