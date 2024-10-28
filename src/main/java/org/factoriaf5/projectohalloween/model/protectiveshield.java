@@ -22,6 +22,10 @@ public class Protectiveshield {
     private String type;
     private String effect;
 
+    
+    public Protectiveshield() {
+    }
+
     @ManyToOne
     @JoinColumn(name = "id_ability")
     private Ability ability;
