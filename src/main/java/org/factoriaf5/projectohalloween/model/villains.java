@@ -12,6 +12,7 @@ public abstract class Villains {
     private int Life_points;
     private int Attack_points;
 
+    public Villains(){}
     
     public Villains(int Life_points, int Attack_points) {
         this.Life_points = Life_points;
