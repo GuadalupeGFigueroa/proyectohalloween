@@ -2,9 +2,13 @@ package org.factoriaf5.projectohalloween.model;
 
 public class Stage {
 
+
     private String name;
     private int enemies;
     private int attackPower;
+
+    public Stage() {
+    }
 
     public Stage (String nombre, int enemies, int attackPower){
         this.name=nombre;
