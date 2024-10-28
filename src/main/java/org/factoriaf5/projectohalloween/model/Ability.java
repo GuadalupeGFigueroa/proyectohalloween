@@ -18,6 +18,11 @@ public class Ability {
     private String name;
     private String type;
     private String effect;
+
+    
+    public Ability() {
+    }
+
     public Ability(Long id, String name, String type, String effect) {
         this.id = id;
         this.name = name;
