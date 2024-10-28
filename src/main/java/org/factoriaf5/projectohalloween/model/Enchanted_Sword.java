@@ -27,6 +27,9 @@ public class Enchanted_Sword {
     @JoinColumn(name = "id_Object")
     private Object object;
 
+    public Enchanted_Sword() {
+    }
+
     public Enchanted_Sword(int id, String name, String type, String efect, Object object) {
         this.id = id;
         this.name = name;
