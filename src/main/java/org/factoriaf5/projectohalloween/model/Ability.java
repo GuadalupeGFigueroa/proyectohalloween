@@ -19,7 +19,9 @@ public class Ability {
     private String name;
     private String type;
     private String effect;
+
     
+      
     public Ability() {
     }
     
