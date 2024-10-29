@@ -3,6 +3,7 @@ package org.factoriaf5.projectohalloween.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -21,6 +22,7 @@ public class Ability {
     
     public Ability() {
     }
+    
     public Ability(Long id, String name, String type, String effect) {
         this.id = id;
         this.name = name;
