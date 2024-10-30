@@ -1,36 +1,54 @@
 package org.factoriaf5.projectohalloween.model;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="stages")
 public class Stage {
-
-
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
     private String name;
-    private int enemies;
-    private int attackPower;
+    private String description;
+    private int level;
 
     public Stage() {
     }
 
-    public Stage (String nombre, int enemies, int attackPower){
-        this.name=nombre;
-        this.enemies=enemies;
-        this.attackPower=attackPower;
+    public Stage (String name, String description, int level){
+        this.name=name;
+        this.description=description;
+        this.level=level;
     }
 
-    public String getNombre(){
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public int getEnemies(){
-        return enemies;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getAttackPower(){
-        return attackPower;
+    public String getDescription() {
+        return description;
     }
 
-    public void information (){
-    System.out.println("Nivel "+ name);
-    System.out.println("Numero de enemigos "+ enemies);
-    System.out.println("poder de ataque "+ attackPower);
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }
