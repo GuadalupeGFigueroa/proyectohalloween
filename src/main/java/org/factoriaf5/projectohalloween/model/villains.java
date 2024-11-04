@@ -42,5 +42,5 @@ public abstract class Villains {
         this.Attack_points = Attack_points;
     }
 
-    public abstract void derrotado(Aiden jugador);
+    public abstract void defeated(Aiden jugador);
 }

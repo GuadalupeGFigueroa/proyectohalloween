@@ -34,8 +34,6 @@ public class AidenService {
         aiden.setName(aidenDetails.getName());
         aiden.setLife_points(aidenDetails.getLife_points());
         aiden.setAttack_power(aidenDetails.getAttack_power());
-        aiden.setLevel(aidenDetails.getLevel());
-        aiden.setExperience(aidenDetails.getExperience());
         aiden.setScore(aidenDetails.getScore());
 
         return repository.save(aiden);

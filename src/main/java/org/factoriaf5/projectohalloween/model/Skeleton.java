@@ -9,7 +9,7 @@ public class Skeleton extends Villains {
     }
 
     @Override
-    public void derrotado(Aiden jugador) {
-        jugador.setPuntuacion(jugador.getPuntuacion() + 10);
+    public void defeated(Aiden jugador) {
+        jugador.setScore(jugador.getScore() + 10);
     }
 }

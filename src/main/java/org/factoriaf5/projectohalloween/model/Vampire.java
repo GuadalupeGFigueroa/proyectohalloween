@@ -9,8 +9,8 @@ public class Vampire extends Villains {
     }
 
     @Override
-    public void derrotado(Aiden jugador) {
-        jugador.setPuntuacion(jugador.getPuntuacion() + 20);
-        jugador.setPuntosVida(jugador.getPuntosVida() + jugador.getPuntosVida() / 2);  // Recupera el 50% de vida
+    public void defeated(Aiden jugador) {
+        jugador.setScore(jugador.getScore() + 20);
+        jugador.setLife_points(jugador.getLife_points() + jugador.getLife_points() / 2);  // Recupera el 50% de vida
     }
 }

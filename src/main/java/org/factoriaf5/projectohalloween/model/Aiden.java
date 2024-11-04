@@ -13,8 +13,6 @@ public class Aiden {
     private String name;
     private int life_points;
     private int attack_power;
-    private int level;
-    private int experience;
     private int score;
 
     
@@ -26,8 +24,6 @@ public class Aiden {
         this.name = name;
         this.life_points = life_points;
         this.attack_power = attack_power;
-        this.level = level;
-        this.experience = experience;
         this.score = score;
     }
 
@@ -61,22 +57,6 @@ public class Aiden {
 
     public void setAttack_power(int attack_power) {
         this.attack_power = attack_power;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
     }
 
     public int getScore() {
