@@ -1,7 +1,9 @@
-package org.factoriaf5.projectohalloween.services;
+package org.factoriaf5.projectohalloween.service;
 
 import java.util.List;
 
+import org.factoriaf5.projectohalloween.model.Aiden;
+import org.factoriaf5.projectohalloween.repository.AidenRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -43,17 +45,7 @@ public class AidenService {
         Aiden aiden = repository.findById(id)
         .orElseThrow(() -> new RuntimeException("Aiden's not found with id: " +id));
 
-        repository.delete(Aiden);
+        repository.delete(aiden);
         return true;
     }
-}
-
-
-
-
-    
-    
-
-    
-    
 }

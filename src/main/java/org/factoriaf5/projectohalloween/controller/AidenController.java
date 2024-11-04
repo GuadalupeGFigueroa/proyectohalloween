@@ -2,6 +2,8 @@ package org.factoriaf5.projectohalloween.controller;
 
 import java.util.*;
 
+import org.factoriaf5.projectohalloween.model.Aiden;
+import org.factoriaf5.projectohalloween.service.AidenService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
