@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = Powerfullblow)
+@Table(name = "Powerfullblow")
 
 public class Powerfullblow {
 
