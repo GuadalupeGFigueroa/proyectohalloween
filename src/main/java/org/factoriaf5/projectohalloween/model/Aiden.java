@@ -1,17 +1,14 @@
 package org.factoriaf5.projectohalloween.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Aiden")
 
 public class Aiden {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column{name = "id_aiden"}
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Column(name = "id_aiden")
     private Long id;
     private String name;
     private int life_points;
@@ -89,8 +86,4 @@ public class Aiden {
     public void setScore(int score) {
         this.score = score;
     }
-    
-
-    
-
 }
