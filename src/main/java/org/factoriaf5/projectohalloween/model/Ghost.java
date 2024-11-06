@@ -9,7 +9,7 @@ public class Ghost extends Villains {
     }
 
     @Override
-    public void defeated(Aiden jugador) {
-        jugador.setScore(jugador.getScore() + 15);
+    public void defeated(Aiden Player) {
+        Player.setScore(Player.getScore() + 15);
     }
 }

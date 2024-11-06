@@ -43,6 +43,14 @@ public class Aiden {
         abilities.add(ability);
     }
 
+    public boolean isDead() {
+        return this.life_points <= 0;
+    }
+
+    public void attack(Villains enemy) {
+        enemy.setLife_points(enemy.getLife_points() - this.Attack_points);
+    }
+
     public void applyAbilityEffects() {
         for (Ability ability : abilities) {
             ability.decreaseCooldown();
@@ -115,5 +123,10 @@ public class Aiden {
 
     public void setAbilities(List<Ability> abilities) {
         this.abilities = abilities;
+    }
+
+    public void addItem(Health_Potion health_Potion) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addItem'");
     }
 }

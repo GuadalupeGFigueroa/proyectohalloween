@@ -1,11 +1,16 @@
 package org.factoriaf5.projectohalloween.model;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name="stages")
+@Table(name = "stages")
 public class Stage {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String description;
@@ -14,10 +19,15 @@ public class Stage {
     public Stage() {
     }
 
-    public Stage (String name, String description, int level){
-        this.name=name;
-        this.description=description;
-        this.level=level;
+    public Stage(String name, String description, int level) {
+        this.name = name;
+        this.description = description;
+        this.level = level;
+    }
+
+    // Método para avanzar al siguiente nivel
+    public void nextLevel() {
+        this.level++; // Aumentar el nivel del stage actual
     }
 
     public long getId() {
