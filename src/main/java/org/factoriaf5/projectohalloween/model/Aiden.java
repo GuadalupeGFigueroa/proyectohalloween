@@ -1,8 +1,16 @@
 package org.factoriaf5.projectohalloween.model;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Aiden")
@@ -13,20 +21,21 @@ public class Aiden {
     private Long id;
 
     private String name;
-    private int lifePoints;
-    private int attackPower;
+    private int life_points;
+    private int Attack_points;
     private int score;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "aiden_id")
     private List<Ability> abilities = new ArrayList<>();
 
-    public Aiden() {}
+    public Aiden() {
+    }
 
-    public Aiden(String name, int lifePoints, int attackPower, int score) {
+    public Aiden(String name, int life_points, int Attack_points, int score) {
         this.name = name;
-        this.lifePoints = lifePoints;
-        this.attackPower = attackPower;
+        this.life_points = life_points;
+        this.Attack_points = Attack_points;
         this.score = score;
     }
 
@@ -40,10 +49,10 @@ public class Aiden {
             if (ability.isActive()) {
                 switch (ability.getName()) {
                     case "Golpe Potente":
-                        this.attackPower += 10;
+                        this.Attack_points += 10;
                         break;
                     case "Escudo Protector":
-                        this.lifePoints += 5;  // O restar 5 al daño recibido
+                        this.life_points += 5; // O restar 5 al daño recibido
                         break;
                 }
             }
@@ -60,12 +69,12 @@ public class Aiden {
         return false;
     }
 
-    public int getLifePoints() {
-        return lifePoints;
+    public int getLife_points() {
+        return life_points;
     }
 
-    public int getAttackPower() {
-        return attackPower;
+    public int getAttack_points() {
+        return Attack_points;
     }
 
     public List<Ability> getAbilities() {
@@ -88,12 +97,12 @@ public class Aiden {
         this.name = name;
     }
 
-    public void setLifePoints(int lifePoints) {
-        this.lifePoints = lifePoints;
+    public void setLife_points(int life_points) {
+        this.life_points = life_points;
     }
 
-    public void setAttackPower(int attackPower) {
-        this.attackPower = attackPower;
+    public void setAttack_points(int Attack_points) {
+        this.Attack_points = Attack_points;
     }
 
     public int getScore() {
