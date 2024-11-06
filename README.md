@@ -69,6 +69,13 @@ Este proyecto está organizado en **tres sprints** de una semana cada uno. Utili
 
 - Repositorio en GitHub con todo el código y documentación.
 - Diagrama UML de arquitectura.
+ ![UML PROYECTOHALLOWEEN](https://github.com/user-attachments/assets/6b0b6b85-79b2-48fb-a274-dc617fe79321)
+
+
+- Diagrama de flujo
+  
+  ![DiagramaFlujo](https://github.com/user-attachments/assets/86b3b36b-8500-4833-8098-15e7080d9d13)
+
 - Plan de sprints en Jira.
 - Pruebas en Postman.
 - Cobertura de tests mínima del 70%.
