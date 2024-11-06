@@ -84,10 +84,8 @@ Este proyecto está organizado en **tres sprints** de una semana cada uno. Utili
 
 Este proyecto ha sido desarrollado por un equipo increíble de colaboradores. Puedes ver sus perfiles en GitHub a continuación:
 
-## Colaboradores
-
-- [Óscar Menéndez](https://github.com/Morty1904) (Product Owner)
-- [Ana B. Hernandez](https://github.com/AnaBHernandez) (Project Manager)
+- [Óscar Menéndez](https://github.com/Morty1904) (Scrum Master, developer)
+- [Ana B. Hernandez](https://github.com/AnaBHernandez) (Product Owner, developer)
 - [Guadalupe García](https://github.com/GuadalupeGFigueroa) (Developer)
 - [Naudelyn Lucena](https://github.com/NaudelynLucena) (Developer)
 - [Alejandra Sierra](https://github.com/alejandra-sierra) (Developer)
