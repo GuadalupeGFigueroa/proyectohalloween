@@ -47,6 +47,12 @@ public class AidenController {
         }
     }
 
+    public class AidenNotFoundException extends RuntimeException {
+        public AidenNotFoundException(Long id) {
+            super("Aiden with ID " + id + " not found.");
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAiden(@PathVariable Long id) {
         try {
