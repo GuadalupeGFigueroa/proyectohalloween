@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 public class Vampire extends Villains {
     public Vampire() {
         super(20, 10);
+    }
 
     @Override
     public void defeated(Aiden jugador) {
