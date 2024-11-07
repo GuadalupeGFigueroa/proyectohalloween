@@ -22,7 +22,7 @@ public class Backpack {
     private Aiden aiden;
 
     @ElementCollection
-    private List<Object> items = new ArrayList<>();
+    private List<GameObject> items = new ArrayList<>();
 
     public Backpack() {
     }
@@ -39,11 +39,11 @@ public class Backpack {
         return aiden;
     }
 
-    public List<Object> getItems() {
+    public List<GameObject> getItems() {
         return items;
     }
 
-    public boolean addItem(Object item) {
+    public boolean addItem(GameObject item) {
         if (items.size() < 3) {
             items.add(item);
             return true;
@@ -51,7 +51,7 @@ public class Backpack {
         return false;
     }
 
-    public boolean removeItem(Object item) {
+    public boolean removeItem(GameObject item) {
         return items.remove(item);
     }
 }

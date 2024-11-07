@@ -35,7 +35,7 @@ public class BackpackController {
 
     @PutMapping("/{id}/add-item")
     public ResponseEntity<Backpack> addItem(@PathVariable Long id,
-            @RequestBody org.factoriaf5.projectohalloween.model.Object item) {
+            @RequestBody org.factoriaf5.projectohalloween.model.GameObject item) {
         return backpackService.findBackpackById(id).map(backpack -> {
             if (backpack.addItem(item)) {
                 backpackService.save(backpack);

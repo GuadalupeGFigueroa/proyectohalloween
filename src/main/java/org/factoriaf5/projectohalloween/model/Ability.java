@@ -1,6 +1,10 @@
 package org.factoriaf5.projectohalloween.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Ability")
@@ -18,7 +22,8 @@ public class Ability {
     private int remainingCooldown; // Turnos restantes hasta que pueda usarse de nuevo
     private int activeTurnsLeft; // Turnos restantes en los que el efecto está activo
 
-    public Ability() {}
+    public Ability() {
+    }
 
     public Ability(String name, String type, String effect, int cooldown, int duration) {
         this.name = name;

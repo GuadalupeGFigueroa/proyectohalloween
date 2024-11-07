@@ -1,15 +1,16 @@
 package org.factoriaf5.projectohalloween.model;
 
-import org.junit.jupiter.api.Test;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
+
+import org.junit.jupiter.api.Test;
 
 public class BackpackTest {
 
     @Test
     public void testAddItemToBackpack() {
         Backpack backpack = new Backpack();
-        Object item = new Object("Enchanted Sword", "Weapon", "Increases attack power");
+        GameObject item = new GameObject("Enchanted Sword", "Weapon", "Increases attack power");
         boolean result = backpack.addItem(item);
 
         assertThat(result, is(true));
@@ -19,7 +20,7 @@ public class BackpackTest {
     @Test
     public void testRemoveItemFromBackpack() {
         Backpack backpack = new Backpack();
-        Object item = new Object("Health Potion", "Healing", "Restores health points");
+        GameObject item = new GameObject("Health Potion", "Healing", "Restores health points");
         backpack.addItem(item);
         boolean result = backpack.removeItem(item);
 
@@ -30,10 +31,10 @@ public class BackpackTest {
     @Test
     public void testAddItemWhenBackpackIsFull() {
         Backpack backpack = new Backpack();
-        Object item1 = new Object("Enchanted Sword", "Weapon", "Increases attack power");
-        Object item2 = new Object("Health Potion", "Healing", "Restores health points");
-        Object item3 = new Object("Magic Shield", "Defense", "Blocks incoming attacks");
-        Object item4 = new Object("Fireball Scroll", "Magic", "Burns the enemy");
+        GameObject item1 = new GameObject("Enchanted Sword", "Weapon", "Increases attack power");
+        GameObject item2 = new GameObject("Health Potion", "Healing", "Restores health points");
+        GameObject item3 = new GameObject("Magic Shield", "Defense", "Blocks incoming attacks");
+        GameObject item4 = new GameObject("Fireball Scroll", "Magic", "Burns the enemy");
 
         backpack.addItem(item1);
         backpack.addItem(item2);

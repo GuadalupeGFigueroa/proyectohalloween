@@ -1,15 +1,16 @@
 package org.factoriaf5.projectohalloween.model;
 
-import org.junit.jupiter.api.Test;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
+
+import org.junit.jupiter.api.Test;
 
 public class ObjectTest {
 
     @Test
     public void testObjectProperties() {
-        
-        Object obj = new Object("Enchanted Sword", "Weapon", "Increases attack power");
+
+        GameObject obj = new GameObject("Enchanted Sword", "Weapon", "Increases attack power");
 
         assertThat(obj.getName(), is("Enchanted Sword"));
         assertThat(obj.getType(), is("Weapon"));
@@ -18,7 +19,7 @@ public class ObjectTest {
 
     @Test
     public void testGetters() {
-        Object obj = new Object("Healt Potion", "Healing", "Restores health points");
+        GameObject obj = new GameObject("Healt Potion", "Healing", "Restores health points");
 
         assertThat(obj.getName(), is("Healt Potion"));
         assertThat(obj.getType(), is("Healing"));
@@ -27,8 +28,7 @@ public class ObjectTest {
 
     @Test
     public void testSetters() {
-        Object obj = new Object("Magic Amulet", "Buff", "Increases magic power");
-
+        GameObject obj = new GameObject("Magic Amulet", "Buff", "Increases magic power");
 
         obj.setName("Magic Amulet");
         obj.setType("Buff");
