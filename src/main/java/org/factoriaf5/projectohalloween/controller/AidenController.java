@@ -6,6 +6,7 @@ import org.factoriaf5.projectohalloween.model.Aiden;
 import org.factoriaf5.projectohalloween.model.Backpack;
 import org.factoriaf5.projectohalloween.model.GameObject;
 import org.factoriaf5.projectohalloween.service.AidenService;
+import org.factoriaf5.projectohalloween.service.BackpackService; // Importa BackpackService
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,9 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/aiden")
 public class AidenController {
     private final AidenService aidenService;
+    private final BackpackService backpackService; // Declara BackpackService
 
-    public AidenController(AidenService aidenService) {
+    // Inyección de dependencias
+    public AidenController(AidenService aidenService, BackpackService backpackService) {
         this.aidenService = aidenService;
+        this.backpackService = backpackService; // Inicializa BackpackService
     }
 
     @GetMapping
@@ -80,7 +84,7 @@ public class AidenController {
             Aiden aiden = aidenService.getAidenById(id);
             Backpack backpack = aiden.getBackpack();
             if (backpack.addItem(item)) {
-                backpackService.save(backpack);
+                backpackService.save(backpack); // Aquí usas el backpackService
                 return ResponseEntity.ok(backpack);
             } else {
                 return ResponseEntity.badRequest().body(backpack); // Mochila llena
@@ -96,7 +100,7 @@ public class AidenController {
             Aiden aiden = aidenService.getAidenById(id);
             Backpack backpack = aiden.getBackpack();
             if (backpack.removeItem(item)) {
-                backpackService.save(backpack);
+                backpackService.save(backpack); // Aquí usas el backpackService
                 return ResponseEntity.ok(backpack);
             } else {
                 return ResponseEntity.badRequest().body(backpack); // No se encontró el objeto
