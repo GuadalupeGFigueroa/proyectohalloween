@@ -38,13 +38,13 @@ class AidenServiceTest {
 
     @Test
     void testGetAllAiden() {
-        // Arrange
+        
         when(aidenRepository.findAll()).thenReturn(List.of(aiden));
 
-        // Act
+        
         var result = aidenService.getAllAiden();
 
-        // Assert
+        
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals("Aiden", result.get(0).getName());
@@ -53,13 +53,13 @@ class AidenServiceTest {
 
     @Test
     void testGetAidenById_Success() {
-        // Arrange
+        
         when(aidenRepository.findById(1L)).thenReturn(Optional.of(aiden));
 
-        // Act
+        
         Aiden result = aidenService.getAidenById(1L);
 
-        // Assert
+        
         assertNotNull(result);
         assertEquals("Aiden", result.getName());
         verify(aidenRepository, times(1)).findById(1L);
@@ -67,10 +67,10 @@ class AidenServiceTest {
 
     @Test
     void testGetAidenById_NotFound() {
-        // Arrange
+        
         when(aidenRepository.findById(1L)).thenReturn(Optional.empty());
 
-        // Act & Assert
+        
         RuntimeException exception = assertThrows(RuntimeException.class, () -> aidenService.getAidenById(1L));
         assertEquals("Aiden's not found with id: 1", exception.getMessage());
         verify(aidenRepository, times(1)).findById(1L);
@@ -78,13 +78,13 @@ class AidenServiceTest {
 
     @Test
     void testCreateAiden() {
-        // Arrange
+        
         when(aidenRepository.save(any(Aiden.class))).thenReturn(aiden);
 
-        // Act
+        
         Aiden result = aidenService.createAiden(aiden);
 
-        // Assert
+    
         assertNotNull(result);
         assertEquals("Aiden", result.getName());
         verify(aidenRepository, times(1)).save(any(Aiden.class));
@@ -92,7 +92,7 @@ class AidenServiceTest {
 
     @Test
     void testUpdateAiden_Success() {
-        // Arrange
+        
         Aiden updatedAiden = new Aiden();
         updatedAiden.setName("Updated Aiden");
         updatedAiden.setLife_points(90);
@@ -102,10 +102,10 @@ class AidenServiceTest {
         when(aidenRepository.findById(1L)).thenReturn(Optional.of(aiden));
         when(aidenRepository.save(any(Aiden.class))).thenReturn(updatedAiden);
 
-        // Act
+        
         Aiden result = aidenService.updateAiden(1L, updatedAiden);
 
-        // Assert
+        
         assertNotNull(result);
         assertEquals("Updated Aiden", result.getName());
         assertEquals(90, result.getLife_points());
@@ -117,13 +117,13 @@ class AidenServiceTest {
 
     @Test
     void testDeleteAiden_Success() {
-        // Arrange
+        
         when(aidenRepository.findById(1L)).thenReturn(Optional.of(aiden));
 
-        // Act
+        
         boolean result = aidenService.deleteAiden(1L);
 
-        // Assert
+        
         assertTrue(result);
         verify(aidenRepository, times(1)).findById(1L);
         verify(aidenRepository, times(1)).delete(any(Aiden.class));
@@ -131,10 +131,10 @@ class AidenServiceTest {
 
     @Test
     void testDeleteAiden_NotFound() {
-        // Arrange
+        
         when(aidenRepository.findById(1L)).thenReturn(Optional.empty());
 
-        // Act & Assert
+        
         RuntimeException exception = assertThrows(RuntimeException.class, () -> aidenService.deleteAiden(1L));
         assertEquals("Aiden's not found with id: 1", exception.getMessage());
         verify(aidenRepository, times(1)).findById(1L);
