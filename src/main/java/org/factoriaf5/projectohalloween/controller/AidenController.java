@@ -6,7 +6,7 @@ import org.factoriaf5.projectohalloween.model.Aiden;
 import org.factoriaf5.projectohalloween.model.Backpack;
 import org.factoriaf5.projectohalloween.model.GameObject;
 import org.factoriaf5.projectohalloween.service.AidenService;
-import org.factoriaf5.projectohalloween.service.BackpackService; // Importa BackpackService
+import org.factoriaf5.projectohalloween.service.BackpackService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,12 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/aiden")
 public class AidenController {
     private final AidenService aidenService;
-    private final BackpackService backpackService; // Declara BackpackService
+    private final BackpackService backpackService; // Añadir esta línea
 
-    // Inyección de dependencias
+    // Inyectamos AidenService y BackpackService
     public AidenController(AidenService aidenService, BackpackService backpackService) {
         this.aidenService = aidenService;
-        this.backpackService = backpackService; // Inicializa BackpackService
+        this.backpackService = backpackService; // Inicializamos el servicio
     }
 
     @GetMapping
@@ -60,12 +60,6 @@ public class AidenController {
         }
     }
 
-    public class AidenNotFoundException extends RuntimeException {
-        public AidenNotFoundException(Long id) {
-            super("Aiden with ID " + id + " not found.");
-        }
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAiden(@PathVariable Long id) {
         try {
@@ -84,7 +78,7 @@ public class AidenController {
             Aiden aiden = aidenService.getAidenById(id);
             Backpack backpack = aiden.getBackpack();
             if (backpack.addItem(item)) {
-                backpackService.save(backpack); // Aquí usas el backpackService
+                backpackService.save(backpack); // Usamos el servicio para guardar la mochila
                 return ResponseEntity.ok(backpack);
             } else {
                 return ResponseEntity.badRequest().body(backpack); // Mochila llena
@@ -100,7 +94,7 @@ public class AidenController {
             Aiden aiden = aidenService.getAidenById(id);
             Backpack backpack = aiden.getBackpack();
             if (backpack.removeItem(item)) {
-                backpackService.save(backpack); // Aquí usas el backpackService
+                backpackService.save(backpack); // Usamos el servicio para guardar la mochila
                 return ResponseEntity.ok(backpack);
             } else {
                 return ResponseEntity.badRequest().body(backpack); // No se encontró el objeto
