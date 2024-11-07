@@ -1,5 +1,16 @@
 package org.factoriaf5.projectohalloween.controller;
 
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.contains;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
 import org.factoriaf5.projectohalloween.model.Aiden;
 import org.factoriaf5.projectohalloween.model.Villains;
 import org.factoriaf5.projectohalloween.service.VillainsService;
@@ -10,16 +21,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
 
 public class VillainsControllerTest {
 
@@ -114,4 +115,3 @@ public class VillainsControllerTest {
         assertThat(response.getStatusCode(), is(HttpStatus.NO_CONTENT));
     }
 }
-
