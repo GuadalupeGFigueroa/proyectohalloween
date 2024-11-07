@@ -17,10 +17,10 @@ public class Ability {
     private String name;
     private String type;
     private String effect;
-    private int cooldown; // Turnos de recarga
-    private int duration; // Duración del efecto en turnos
-    private int remainingCooldown; // Turnos restantes hasta que pueda usarse de nuevo
-    private int activeTurnsLeft; // Turnos restantes en los que el efecto está activo
+    private int cooldown;
+    private int duration;
+    private int remainingCooldown;
+    private int activeTurnsLeft;
 
     public Ability() {
     }

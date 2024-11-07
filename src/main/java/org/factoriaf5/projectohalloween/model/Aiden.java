@@ -66,7 +66,7 @@ public class Aiden {
                         this.Attack_points += 10;
                         break;
                     case "Escudo Protector":
-                        this.life_points += 5; // O restar 5 al daño recibido
+                        this.life_points += 5;
                         break;
                 }
             }

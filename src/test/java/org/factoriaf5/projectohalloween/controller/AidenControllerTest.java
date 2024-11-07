@@ -1,21 +1,23 @@
 package org.factoriaf5.projectohalloween.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.factoriaf5.projectohalloween.model.Aiden;
 import org.factoriaf5.projectohalloween.service.AidenService;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
-import java.util.ArrayList;
-import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
 
 class AidenControllerTest {
 
@@ -33,7 +35,7 @@ class AidenControllerTest {
     @Test
     void getAllAiden_ReturnsAidenList() {
         List<Aiden> aidens = new ArrayList<>();
-        aidens.add(new Aiden());  // puedes crear una instancia de prueba
+        aidens.add(new Aiden());
 
         when(aidenService.getAllAiden()).thenReturn(aidens);
 

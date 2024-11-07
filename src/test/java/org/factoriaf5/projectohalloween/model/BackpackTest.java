@@ -1,8 +1,10 @@
 package org.factoriaf5.projectohalloween.model;
 
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
-
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import org.junit.jupiter.api.Test;
 
 public class BackpackTest {
@@ -48,7 +50,7 @@ public class BackpackTest {
 
     @Test
     public void testBackpackInitialization() {
-        Aiden aiden = new Aiden(); // Asume que tienes una clase Aiden con un constructor vacío
+        Aiden aiden = new Aiden();
         Backpack backpack = new Backpack(aiden);
 
         assertThat(backpack.getAiden(), is(aiden));

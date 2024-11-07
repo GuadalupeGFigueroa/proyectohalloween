@@ -1,12 +1,5 @@
 package org.factoriaf5.projectohalloween.controller;
 
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.Matchers.contains;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -14,10 +7,17 @@ import java.util.Optional;
 import org.factoriaf5.projectohalloween.model.Aiden;
 import org.factoriaf5.projectohalloween.model.Villains;
 import org.factoriaf5.projectohalloween.service.VillainsService;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,13 +40,11 @@ public class VillainsControllerTest {
         Villains villain1 = new Villains(100, 10) {
             @Override
             public void defeated(Aiden jugador) {
-                // Implementa el método aquí
             }
         };
         Villains villain2 = new Villains(200, 20) {
             @Override
             public void defeated(Aiden jugador) {
-                // Implementa el método aquí
             }
         };
         List<Villains> villainsList = Arrays.asList(villain1, villain2);
@@ -64,7 +62,6 @@ public class VillainsControllerTest {
         Villains villain = new Villains(100, 10) {
             @Override
             public void defeated(Aiden jugador) {
-                // Implementa el método aquí
             }
         };
         when(villainsService.getVillainById(1L)).thenReturn(Optional.of(villain));
@@ -80,7 +77,6 @@ public class VillainsControllerTest {
         Villains villain = new Villains(100, 10) {
             @Override
             public void defeated(Aiden jugador) {
-                // Implementa el método aquí
             }
         };
         when(villainsService.createVillain(any(Villains.class))).thenReturn(villain);
@@ -95,7 +91,6 @@ public class VillainsControllerTest {
         Villains villain = new Villains(100, 10) {
             @Override
             public void defeated(Aiden jugador) {
-                // Implementa el método aquí
             }
         };
         when(villainsService.updateVillain(eq(1L), any(Villains.class))).thenReturn(Optional.of(villain));

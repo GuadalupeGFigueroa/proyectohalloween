@@ -22,12 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/aiden")
 public class AidenController {
     private final AidenService aidenService;
-    private final BackpackService backpackService; // Añadir esta línea
+    private final BackpackService backpackService;
 
-    // Inyectamos AidenService y BackpackService
     public AidenController(AidenService aidenService, BackpackService backpackService) {
         this.aidenService = aidenService;
-        this.backpackService = backpackService; // Inicializamos el servicio
+        this.backpackService = backpackService;
     }
 
     @GetMapping
@@ -78,10 +77,10 @@ public class AidenController {
             Aiden aiden = aidenService.getAidenById(id);
             Backpack backpack = aiden.getBackpack();
             if (backpack.addItem(item)) {
-                backpackService.save(backpack); // Usamos el servicio para guardar la mochila
+                backpackService.save(backpack);
                 return ResponseEntity.ok(backpack);
             } else {
-                return ResponseEntity.badRequest().body(backpack); // Mochila llena
+                return ResponseEntity.badRequest().body(backpack);
             }
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -94,10 +93,10 @@ public class AidenController {
             Aiden aiden = aidenService.getAidenById(id);
             Backpack backpack = aiden.getBackpack();
             if (backpack.removeItem(item)) {
-                backpackService.save(backpack); // Usamos el servicio para guardar la mochila
+                backpackService.save(backpack);
                 return ResponseEntity.ok(backpack);
             } else {
-                return ResponseEntity.badRequest().body(backpack); // No se encontró el objeto
+                return ResponseEntity.badRequest().body(backpack);
             }
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
