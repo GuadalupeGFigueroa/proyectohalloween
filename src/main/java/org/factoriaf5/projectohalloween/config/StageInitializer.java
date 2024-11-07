@@ -2,13 +2,13 @@ package org.factoriaf5.projectohalloween.config;
 import jakarta.annotation.PostConstruct;
 import org.factoriaf5.projectohalloween.model.Stage;
 import org.factoriaf5.projectohalloween.repository.StageRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 
 public class StageInitializer{
 
     private final StageRepository stageRepository;
-    @Autowired
+  
     public StageInitializer(StageRepository stageRepository){
         this.stageRepository = stageRepository;
     }

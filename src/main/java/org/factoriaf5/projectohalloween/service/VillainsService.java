@@ -1,7 +1,7 @@
 package org.factoriaf5.projectohalloween.service;
 import org.factoriaf5.projectohalloween.model.Villains;
 import org.factoriaf5.projectohalloween.repository.VillainsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ public class VillainsService {
     
     private final VillainsRepository villainsRepository;
 
-    @Autowired
+   
     public VillainsService(VillainsRepository villainsRepository) {
         this.villainsRepository = villainsRepository;
     }
