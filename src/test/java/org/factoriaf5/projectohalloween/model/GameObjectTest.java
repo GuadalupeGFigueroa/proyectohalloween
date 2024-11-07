@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.*;
 
 import org.junit.jupiter.api.Test;
 
-public class ObjectTest {
+public class GameObjectTest {
 
     @Test
     public void testObjectProperties() {
