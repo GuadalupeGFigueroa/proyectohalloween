@@ -1,11 +1,11 @@
 package org.factoriaf5.projectohalloween.model;
 
-public class Object {
+public class GameObject {
     private String name;
     private String type;
     private String effect;
 
-    public Object(String name, String type, String effect) {
+    public GameObject(String name, String type, String effect) {
         this.name = name;
         this.type = type;
         this.effect = effect;

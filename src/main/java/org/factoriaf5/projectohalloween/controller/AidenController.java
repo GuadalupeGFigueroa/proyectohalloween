@@ -3,6 +3,8 @@ package org.factoriaf5.projectohalloween.controller;
 import java.util.List;
 
 import org.factoriaf5.projectohalloween.model.Aiden;
+import org.factoriaf5.projectohalloween.model.Backpack;
+import org.factoriaf5.projectohalloween.model.GameObject;
 import org.factoriaf5.projectohalloween.service.AidenService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -67,6 +69,38 @@ public class AidenController {
                 return ResponseEntity.noContent().build();
             }
             return ResponseEntity.notFound().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @PutMapping("/{id}/backpack/add-item")
+    public ResponseEntity<Backpack> addItemToBackpack(@PathVariable Long id, @RequestBody GameObject item) {
+        try {
+            Aiden aiden = aidenService.getAidenById(id);
+            Backpack backpack = aiden.getBackpack();
+            if (backpack.addItem(item)) {
+                backpackService.save(backpack);
+                return ResponseEntity.ok(backpack);
+            } else {
+                return ResponseEntity.badRequest().body(backpack); // Mochila llena
+            }
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @DeleteMapping("/{id}/backpack/remove-item")
+    public ResponseEntity<Backpack> removeItemFromBackpack(@PathVariable Long id, @RequestBody GameObject item) {
+        try {
+            Aiden aiden = aidenService.getAidenById(id);
+            Backpack backpack = aiden.getBackpack();
+            if (backpack.removeItem(item)) {
+                backpackService.save(backpack);
+                return ResponseEntity.ok(backpack);
+            } else {
+                return ResponseEntity.badRequest().body(backpack); // No se encontró el objeto
+            }
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

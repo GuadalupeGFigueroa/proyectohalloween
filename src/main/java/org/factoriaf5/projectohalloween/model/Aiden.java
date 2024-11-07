@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,7 +27,9 @@ public class Aiden {
     private int score;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "aiden", cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "aiden_id")
+    private Backpack backpack;
     private List<Ability> abilities = new ArrayList<>();
 
     public Aiden() {
@@ -37,6 +40,17 @@ public class Aiden {
         this.life_points = life_points;
         this.Attack_points = Attack_points;
         this.score = score;
+    }
+
+    public Backpack getBackpack() {
+        if (backpack == null) {
+            this.backpack = new Backpack(this);
+        }
+        return backpack;
+    }
+
+    public void setBackpack(Backpack backpack) {
+        this.backpack = backpack;
     }
 
     public void addAbility(Ability ability) {

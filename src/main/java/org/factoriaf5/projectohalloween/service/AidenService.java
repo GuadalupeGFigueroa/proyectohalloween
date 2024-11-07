@@ -3,6 +3,7 @@ package org.factoriaf5.projectohalloween.service;
 import java.util.List;
 
 import org.factoriaf5.projectohalloween.model.Aiden;
+import org.factoriaf5.projectohalloween.model.Backpack;
 import org.factoriaf5.projectohalloween.repository.AidenRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,9 @@ public class AidenService {
     }
 
     public Aiden createAiden(Aiden aiden) {
+        if (aiden.getBackpack() == null) {
+            aiden.setBackpack(new Backpack(aiden));
+        }
         return repository.save(aiden);
     }
 
